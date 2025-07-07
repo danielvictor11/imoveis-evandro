@@ -1,0 +1,169 @@
+/* -------------------------------------------------
+   Paleta de cores
+   ------------------------------------------------- */
+   :root {
+    --dourado: #b8913e;
+    --fundo-claro: #f5f5f5;
+    --azul-escuro: #0d1f2d;
+    --preto-suave: #1a1a1a;
+
+    /* Altura padrão do carrossel em telas ≥ md */
+    --carousel-altura: 420px;
+}
+
+@media (max-width: 767.98px) {
+    :root { --carousel-altura: 320px; }   /* altura menor no celular */
+}
+
+/* -------------------------------------------------
+   Base
+   ------------------------------------------------- */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--fundo-claro);
+    color: var(--azul-escuro);
+}
+
+.navbar {
+    background-color: var(--azul-escuro);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--dourado) !important;
+}
+
+.nav-link {
+    color: white !important;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--dourado) !important;
+}
+
+header {
+    color: white;
+    background-size: cover;
+    background-position: center;
+}
+
+h1.display-4 {
+    color: var(--dourado);
+    font-weight: bold;
+}
+
+h2 {
+    color: var(--azul-escuro);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    color: var(--azul-escuro);
+    font-weight: 600;
+}
+
+a {
+    color: var(--dourado);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #c7a455;
+    text-decoration: underline;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+.bi {
+    font-size: 1.2rem;
+    margin-right: 5px;
+}
+
+/* -------------------------------------------------
+   Rodapé moderno
+   ------------------------------------------------- */
+footer {
+    background-color: var(--azul-escuro);
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+footer .social-links a {
+    color: #fff;
+    margin-left: 10px;
+    transition: color 0.3s ease;
+}
+
+footer .social-links a:hover {
+    color: var(--dourado);
+}
+
+/* -------------------------------------------------
+   AOS (animate on scroll)
+   ------------------------------------------------- */
+[data-aos] {
+    opacity: 0;
+    transition-property: opacity, transform;
+}
+
+[data-aos].aos-animate {
+    opacity: 1;
+}
+
+/* -------------------------------------------------
+   Carrossel – seção “Sobre”
+   ------------------------------------------------- */
+
+/* Caixa do carrossel */
+#carouselFotos .carousel-inner {
+    height: var(--carousel-altura);     /* força altura fixa */
+    aspect-ratio: 3 / 2;                /* moldura 3:2        */
+    background: #000;                   /* barras discretas   */
+    border-radius: 1rem;                /* cantos arredondados*/
+    overflow: hidden;                   /* esconde excedente  */
+    box-shadow: 0 4px 14px rgba(0,0,0,.25);
+}
+
+/* Imagens cabem inteiras sem recorte */
+#carouselFotos .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;                /* não corta a foto   */
+    border-radius: 1rem;                /* segue o contorno   */
+}
+
+/* Fade entre slides mais suave */
+#carouselFotos .carousel-item {
+    transition: opacity .6s ease-in-out;
+}
+
+/* -------------------------------------------------
+   Ajuste pontual – 6ª imagem desalinhada
+   ------------------------------------------------- */
+#carouselFotos .carousel-item:nth-child(6) img {
+    object-fit: cover;        /* preenche toda a área           */
+    object-position: center;  /* foco central                    */
+}
